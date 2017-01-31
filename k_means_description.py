@@ -51,11 +51,12 @@ assignments = tf.argmin(tf.reduce_sum(tf.square(tf.sub(expanded_vecters, expande
 #5. reduce_mean함수: c군집에 속한 모든 점의 평균 값을 가진 텐서 (Dimension(1)*Dimension(2))를 만듦
 means = tf.concat(0, [tf.reduce_mean(tf.gather(vectors, tf.reshape(tf.where(tf.equal(assignments, c)), [1, -1])), reduction_indices=[1]) for c in xrange(k)])
 
-#새로 계산된 중심값을 업데이트
+#새로 계산된 중심값을 업데이트 (mean을 centroides에 할당)
 update_centroides = tf.assign(centroides, means)
 
 #변수 초기화
-init_op = tf.initialize_all_variables()
+#init_op = tf.initialize_all_variables()
+init_op= tf.global_variables_initializer()
 
 sess = tf.Session()
 sess.run(init_op)
