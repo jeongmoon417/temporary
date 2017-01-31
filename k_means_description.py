@@ -40,7 +40,7 @@ assignments = tf.argmin(tf.reduce_sum(tf.square(tf.sub(expanded_vecters, expande
 #diff = tf.sub(expanded_vecters, expanded_centroides) : expanded_vectors와 expanded_centroides의 뺄셈값
 #sqr = tf.square(diff) : diff의 제곱값
 #distances = tf.reduce_sum(sqr, 2) : 지정한 차원에 따라 원소를 더한다 : x^2 + y^2
-#assignments = tf.argmin(distances, 0) : 지정한 차원에서 가장 작은 값을 리턴 --> TensorShape([Dimension(2000)]) 리턴
+#assignments = tf.argmin(distances, 0) : 지정한 차원에서 가장 작은 값을 리턴 --> TensorShape([Dimension(2000)]) 리턴(   군집)
 
 #수정단계(2단계) : 새로운 중심 계산하기
 #K개의 군집에 속하는 점들의 평균을 가진 K개의 탠서를 합쳐서 mean텐서를만든다
